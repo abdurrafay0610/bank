@@ -10,6 +10,7 @@ import junit.framework.Assert;
 public class account_test 
 {
 	public account obj;
+	public account obj2;
 	public customer client;
 	
 	@Before
