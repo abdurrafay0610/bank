@@ -1,10 +1,8 @@
 package bank;
 
 import java.util.ArrayList; // import the ArrayList class
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class account 
 {
@@ -18,11 +16,15 @@ public class account
 	{
 		
 	}
-	account(customer Client, int bal,String Date)
+	account(customer Client, int bal)
 	{
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now= LocalDateTime.now();
+		String date=dtf.format(now);
+		
 		client=Client;
 		balance=bal;
-		date_created=Date;
+		date_created=date;
 	}
 	
 	public int checkBalance() 
@@ -32,16 +34,22 @@ public class account
 	}
 	public int makeDeposit(int deposit)
 	{
-		balance = balance + deposit;
-		System.out.println("Your new balance is:"+balance);
+		if(deposit<0)
+		{
+			System.out.println("Invalid deposit");
+		}
+		else
+		{	
+			balance = balance + deposit;
+			System.out.println("Your new balance is:"+balance);
 		
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		LocalDateTime now= LocalDateTime.now();
-		String date=dtf.format(now);
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			LocalDateTime now= LocalDateTime.now();
+			String date=dtf.format(now);
 		
-		statement obj=new statement(date,deposit,balance,"deposit");
-		statement_list.add(obj);
-		
+			statement obj=new statement(date,deposit,balance,"deposit");
+			statement_list.add(obj);
+		}
 		return balance;
 	}
 	public boolean makeWithdrawal(int withdraw)

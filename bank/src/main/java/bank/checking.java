@@ -5,11 +5,15 @@ import java.time.format.DateTimeFormatter;
 
 public class checking extends account 
 {
-	checking(customer Client, int bal,String Date)
+	checking(customer Client, int bal)
 	{
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now= LocalDateTime.now();
+		String date=dtf.format(now);
+		
 		client=Client;
 		balance=bal;
-		date_created=Date;
+		date_created=date;
 	}
 	public boolean makeWithdrawal(int withdraw)
 	{	

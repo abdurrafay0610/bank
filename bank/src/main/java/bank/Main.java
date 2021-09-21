@@ -49,15 +49,11 @@ public class Main
 					
 					customer client=new customer(acc,name,address,Phoneno);
 					
-					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-					LocalDateTime now= LocalDateTime.now();
-					String date=dtf.format(now);
-					
 					int bal;
 					System.out.println("Initial balance to store:");
 					bal = input.nextInt();
 					
-					saving sav=new saving(client, bal, date);
+					saving sav=new saving(client, bal);
 					
 					saving_list.add(sav);
 				}
@@ -80,15 +76,11 @@ public class Main
 					
 					customer client=new customer(acc,name,address,Phoneno);
 					
-					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-					LocalDateTime now= LocalDateTime.now();
-					String date=dtf.format(now);
-					
 					int bal;
 					System.out.println("Initial balance to store:");
 					bal = input.nextInt();
 					
-					checking check=new checking(client, bal, date);
+					checking check=new checking(client, bal);
 					
 					checking_list.add(check);
 				}
@@ -111,16 +103,12 @@ public class Main
 					
 					customer client=new customer(acc,name,address,Phoneno);
 					
-					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-					LocalDateTime now= LocalDateTime.now();
-					String date=dtf.format(now);
-					
 					int bal;
 					System.out.println("Initial balance to store:");
 					bal = input.nextInt();
 					
-					checking check=new checking(client, bal, date);
-					saving sav= new saving(client, bal,date);
+					checking check=new checking(client, bal);
+					saving sav= new saving(client, bal);
 					
 					saving_list.add(sav);
 					checking_list.add(check);
@@ -295,7 +283,7 @@ public class Main
 									{
 										System.out.println("No such account found");
 									}
-									else if(iindex11!=-1 && iindex22!=-1)
+									else if(iindex11 != -1 && iindex22 != -1)
 									{
 										System.out.println("Account found in both saving and checking, which one do you want?Press s for saving or c for checking ");
 										String cc=input.next();
@@ -432,7 +420,7 @@ public class Main
 				if(saving_list.size()==0)
 				{
 					customer client=new customer(0,"test","test",5);
-					saving sav= new saving(client, 5,"test");
+					saving sav= new saving(client, 5);
 					sav.setInterest(intr_rate);
 				}
 				else
