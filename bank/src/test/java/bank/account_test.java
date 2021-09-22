@@ -1,5 +1,4 @@
 package bank;
-//comment
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -14,7 +13,7 @@ public class account_test
 	public customer client;
 	
 	@Before
-	public void setUp() throws Exception 
+	public void setUp()
 	{
 		client = new customer (1,"Abdurrafay","fast",0610);
 		obj = new account (client,100);

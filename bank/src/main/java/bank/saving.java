@@ -12,6 +12,7 @@ public class saving extends account
 		LocalDateTime now= LocalDateTime.now();
 		String date=dtf.format(now);
 		
+		interest_rate=1;
 		client=Client;
 		balance=bal;
 		date_created=date;
@@ -39,24 +40,27 @@ public class saving extends account
 			return true;
 		}
 	}
-	public int calculateInterest()
+	public float calculateInterest()
 	{
-		return balance*interest_rate/100;
+		float ir=interest_rate;
+		return balance*ir/100;
 	}
-	public int calculateZakat()
+	public float calculateZakat()
 	{
 		if(balance>=20000)
 		{
-			return (balance*5)/200;
+			float bal=balance;
+			return (bal*5)/200;
 		}
 		else
 		{
 			return 0;
 		}
 	}
-	public void setInterest(int ir)
+	public int setInterest(int ir)
 	{
 		interest_rate=ir;
+		return interest_rate;
 	}
 }
 
