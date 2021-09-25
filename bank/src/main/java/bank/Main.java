@@ -223,6 +223,7 @@ public class Main
 						int condition1=9;
 						while(condition1!=0)
 						{
+							System.out.println(" ");
 							System.out.println("To exit this interface type 0");
 							System.out.println("To check balance type 1");
 							System.out.println("To make deposit amount type 2");
