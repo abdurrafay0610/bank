@@ -28,12 +28,14 @@ public class account_test
 		int bal = obj.makeDeposit(500);
 		Assert.assertEquals(600, bal);
 		
-		bal = obj.makeDeposit(-1000);
+		bal = obj.makeDeposit(-1000);					//Deposit will not occur as value is negative
 		Assert.assertEquals(600, bal);
 		
-		obj.transferAmount(obj2, 600);
-		Assert.assertEquals(800,obj2.checkBalance());
+		obj.transferAmount(obj2, 600);					//transfer of balance done
+		Assert.assertEquals(800,obj2.checkBalance());	//checking if transfer is done correctly
 		
+		obj.printStatement();
+		obj.printdetails();
 //		fail("Not yet implemented");
 	}
 

@@ -311,6 +311,10 @@ public class Main
 									}
 								}
 							}
+							else if(condition1==5)
+							{
+								saving_list.get(index11).printStatement();
+							}
 						}
 					}
 					else if(index22!= -1)
@@ -329,19 +333,19 @@ public class Main
 							
 							if(condition1==1)
 							{
-								checking_list.get(index11).checkBalance();
+								checking_list.get(index22).checkBalance();
 							}
 							else if(condition1==2)
 							{
 								System.out.println("Enter deposit amount:");
 								int deposit=input.nextInt();
-								checking_list.get(index11).makeDeposit(deposit);
+								checking_list.get(index22).makeDeposit(deposit);
 							}
 							else if(condition1==3)
 							{
 								System.out.println("Enter withdrawal amount:");
 								int withdraw=input.nextInt();
-								checking_list.get(index11).makeWithdrawal(withdraw);
+								checking_list.get(index22).makeWithdrawal(withdraw);
 							}
 							else if(condition1==4)
 							{
@@ -386,26 +390,30 @@ public class Main
 										
 										if(cc.equals("s"))
 										{
-											checking_list.get(index11).transferAmount(saving_list.get(iindex11), transfer);
+											checking_list.get(index22).transferAmount(saving_list.get(iindex11), transfer);
 											System.out.println("Target account is a saving account, and transfer done");
 										}
 										else if(cc.equals("c"))
 										{
-											checking_list.get(index11).transferAmount(checking_list.get(iindex22), transfer);
+											checking_list.get(index22).transferAmount(checking_list.get(iindex22), transfer);
 											System.out.println("Target account is a checking account, and transfer done");
 										}
 									}
 									else if(iindex11 !=-1)
 									{
-										checking_list.get(index11).transferAmount(saving_list.get(iindex11), transfer);
+										checking_list.get(index22).transferAmount(saving_list.get(iindex11), transfer);
 										System.out.println("Target account is a saving account, and transfer done");
 									}
 									else if(iindex22!= -1)
 									{
-										checking_list.get(index11).transferAmount(checking_list.get(iindex22), transfer);
+										checking_list.get(index22).transferAmount(checking_list.get(iindex22), transfer);
 										System.out.println("Target account is a checking account, and transfer done");
 									}
 								}
+							}
+							else if(condition1==5)
+							{
+								checking_list.get(index22).printStatement();
 							}
 						}
 					}
