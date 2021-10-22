@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main 
-{
+{/*
 	public static void main(String[] args) 
 	{
 		ArrayList<saving> saving_list = new ArrayList<saving>();
@@ -453,5 +453,5 @@ public class Main
 			}
 		}
 		input.close();
-	}
+	}*/
 }

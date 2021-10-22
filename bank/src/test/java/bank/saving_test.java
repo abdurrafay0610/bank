@@ -1,4 +1,4 @@
-package bank;
+ package bank;
 
 import static org.junit.Assert.*;
 
@@ -50,7 +50,6 @@ public class saving_test
 		obj.makeWithdrawal(20150);
 		
 		int bal = obj.checkBalance();
-		
 		Assert.assertEquals(0, bal);
 		
 		obj.transferAmount(obj2, 1000);					//transfer will not occur as there are not enough money in the account
