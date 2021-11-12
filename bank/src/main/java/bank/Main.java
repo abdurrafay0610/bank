@@ -1,4 +1,9 @@
 package bank;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -6,13 +11,19 @@ import java.util.ArrayList;
 
 public class Main 
 {
-	public static void main(String[] args) 
+	public static void main(String[] args) throws SQLException
 	{
 		ArrayList<saving> saving_list = new ArrayList<saving>();
 		ArrayList<checking> checking_list = new ArrayList<checking>();
 		int AccNo=1;
 		Scanner input = new Scanner (System.in);
 		int condition=7;
+		
+		OracleConnect db = new OracleConnect(); 
+		int oracle=0;
+		
+		System.out.println("To save your data in oracle press 1 otherwise 0");
+		oracle = input.nextInt();
 		
 		while(condition!=0)
 		{
@@ -56,6 +67,10 @@ public class Main
 					saving sav=new saving(client, bal);
 					
 					saving_list.add(sav);
+					if(oracle == 1)
+					{
+						db.addSaving(sav);
+					}
 				}
 				else if(choice.equals("c"))
 				{
@@ -83,6 +98,11 @@ public class Main
 					checking check=new checking(client, bal);
 					
 					checking_list.add(check);
+					
+					if(oracle==1)
+					{
+						db.addChecking(check);
+					}
 				}
 				else if(choice.equals("b"))
 				{
@@ -112,6 +132,12 @@ public class Main
 					
 					saving_list.add(sav);
 					checking_list.add(check);
+					
+					if(oracle==1)
+					{
+						db.addChecking(check);
+						db.addSaving(sav);
+					}
 				}
 			}
 			else if(condition==2)
@@ -452,6 +478,8 @@ public class Main
 				}
 			}
 		}
+		
 		input.close();
 	}
+	
 }

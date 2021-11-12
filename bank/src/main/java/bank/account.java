@@ -10,7 +10,6 @@ public class account
 	int balance;
 	ArrayList<statement> statement_list = new ArrayList<statement>();
 	String date_created;
-	account next;
 	
 	account()
 	{
