@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ account_test.class, checking_test.class, saving_test.class })
-public class AllTests 
+public class AllTest
 {
 
 }
