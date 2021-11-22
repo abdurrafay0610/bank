@@ -130,7 +130,7 @@ public class account
 				System.out.println("Transaction Date and Time:"+statement_list.get(i).date);
 				System.out.println("Transaction Amount:"+statement_list.get(i).tranAmount);
 				System.out.println("Remaining Balance:"+statement_list.get(i).BalThen);
-				System.out.println("  ");
+				System.out.println(" ");
 			}
 		}
 	}
